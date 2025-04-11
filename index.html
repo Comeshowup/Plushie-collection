@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Rio Plushie Card</title>
+        <link rel="stylesheet" href="style.css" />
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        
+
+<section class="main">
+  
+
+  <header>
+       <div class="header">
+  <nav class="nav">
+    <a class="home" href="#">Home</a>
+    <a class="gallery-btn" href="#">Gallery</a>
+    <a class="add-plushie" href="#">Add Plushie</a>
+  </nav> 
+  <div class="heading">
+        <h1>Welcome to your cozy  Corner of cuteness!</h1>
+  <p>Collect, share and cuddle your favorite Plushies.</p>
+  </div>
+  <div class="btn-div">
+       <button class="btn btn-view-collection">View Collection</button>
+  </div>
+   
+       </div>
+
+</header>
+  
+  <form class="add-plushie">
+  <h2>Add a New Plushie</h2>
+  <label for="plushie-name">Name</label>
+  <input type="text" id="plushie-name" class="input name">
+
+
+<div class="stats-input">
+  <div class="select-div">
+    <select id="gender" class="select gender">
+    <option value="" disabled selected hidden>Gender</option>
+    <option value="male">Male</option>
+    <option value="Female">Female</option>
+  </select>
+  
+  <select id="rating" class="select rating">
+        <option id="rating" value="" disabled selected hidden>Rating</option>
+    <option value=" ♥ ">♥</option>
+    <option value=" ♥♥ ">♥♥</option>
+    <option value=" ♥♥♥  "><♥♥♥/option>
+    <option value="  ♥♥♥♥   " ><♥♥♥♥/option>
+    <option value="  ♥♥♥♥♥  "><♥♥♥♥♥/option>
+  </select>
+</div>
+
+  <div class="type-traits-div">
+         <input placeholder="Enter Traits" class="input traits" id="traits" required>
+     <input placeholder="Enter Type" class="input type" id="type" >
+  
+  </div>
+</div>
+ 
+  <label for="discription">Plushie Discription</label>
+  <input type="textarea" id="discription" class="input discription">
+  <label for="Upload">Upload image</label>
+  <input type="file" class="choose-file" id="upload" accept="image/*">
+  <button class="btn btn-submit">Add Plushie</button>
+</form>
+
+
+
+</section>
+
+
+
+        <section class="gallery">
+            <h2 class="gallery-heading">Your Plushie Gallery</h2>
+
+            <div class="gallery-preview">
+                <div class="card">
+                    <h1 class="name">RIO</h1>
+                    <p class="description">
+                        Always cheerful, Rio is the life of every cozy corner.
+                        Loves to perch on pillows, make silly faces, and hoard
+                        tiny socks.
+                    </p>
+
+                    <h2 class="plushie-name">Mushroom</h2>
+                    <div class="image-box">
+                        <img
+                            src="plushie_3.png"
+                            class="card-img"
+                            alt="Rio Plushie"
+                        />
+                    </div>
+
+                    <h2 class="subtitle">Mushroom's Stats</h2>
+
+                    <!-- new style -->
+                    <div class="stats-container">
+                        <div class="lower-stats stats">
+                            <div class="stat-item">
+                                <span class="stat-icon">Traits</span>:
+                                <span class="stat-value">Very Soft</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">Type</span>:
+                                <span class="stat-value">Plant</span>
+                            </div>
+                        </div>
+
+                        <div class="upper-stats stats">
+                            <div class="stat-item">
+                                <span class="stat-icon">Gender</span>:<span
+                                    class="stat-value"
+                                    >Female</span
+                                >
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-icon">Rating</span>:<span
+                                    class="stat-value"
+                                    >♥♥♥♥♥</span
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--
+<section class="hero">
+  <h2>Welcome to Your Cozy Corner of Cuteness!</h2>
+  <p>Collect, share, and cuddle your favorite plushies.</p>
+  <a href="#" class="btn">View Collection</a>
+</section>
+<section class="gallery">
+  <h2>Your Plushie Gallery</h2>
+  <div class="plushie-grid">
+    <!-- Repeat for each plushie -->
+        <!--
+    
+    <div class="plushie-card">
+      <img src="rio.png" alt="Rio" />
+      <h3>Rio</h3>
+      <p>Mushroom | Female | Very Soft</p>
+      <a href="#" class="btn-small">View Details</a>
+    </div>
+  </div>
+</section>
+
+-->
+        <script src="script.js"></script>
+    </body>
+</html>

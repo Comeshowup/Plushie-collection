@@ -94,14 +94,16 @@ if (btnSubmit) {
 // Display cards
 
 const displayCards = function () {
+  let a = 0
     const tx = db.transaction(storeName, "readonly");
     const store = tx.objectStore(storeName);
     const request = store.getAll();
     request.onsuccess = function (e) {
         request.result.forEach(function (val) {
+           a++;
             const card = ` 
             <div class="card-container">
-            <div class="card">
+            <div class="card card${val.id}">
   <h1 class="name">RIO</h1>
   <p class="description">
     ${val.discription}.
@@ -152,13 +154,30 @@ const displayCards = function () {
 
 
 </div>
-<a class="btn btn-download">Download</a>
+                <div class="card-btns">
+                <a class="btn btn-download${val.id}">Download</a>
+                <button class="btn btn-edit">Button</button>
+                </div>
 </div>
 `;
 
             gallery.insertAdjacentHTML("afterbegin", card);
+
         });
+          for (let i = 1; i<=a; i++) {
+    let card = document.querySelector(`.card${i}`);
+    let btn = document.querySelector(`.btn-download${i}`);
+    html2canvas(card).then(canvas => {     
+      const imgURL = canvas.toDataURL();  
+      btn.href = imgURL;      
+      btn.download = "card.png"; 
+      })
+  }
+        
     };
+  
+
+
 };
 
 // gallery
@@ -168,13 +187,11 @@ const sectionGallery = document.querySelector('.gallery');
 
 
 
-//Dowbload button
-const btnDownload = document.querySelector(".btn-download");
 
-const card = document.querySelector(".card");
 
-html2canvas(card).then(canvas => {
-  const imgURL = canvas.toDataURL();
-  btnDownload.href = imgURL;
-  btnDownload.download = "card.png";
-})
+
+
+        
+  
+
+

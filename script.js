@@ -57,12 +57,14 @@ request.onerror = function () {
 //
 
 let url;
-
-inputFile.addEventListener("change", async e => {
+if (inputFile) {
+  inputFile.addEventListener("change", async e => {
     url = e.target.files[0];
 });
+}
 
-btnSubmit.addEventListener("click", function (e) {
+if (btnSubmit) {
+  btnSubmit.addEventListener("click", function (e) {
     e.preventDefault();
 
     const tx = db.transaction(storeName, "readwrite");
@@ -86,6 +88,8 @@ btnSubmit.addEventListener("click", function (e) {
 
     displayCards();
 });
+}
+
 
 // Display cards
 
@@ -95,7 +99,9 @@ const displayCards = function () {
     const request = store.getAll();
     request.onsuccess = function (e) {
         request.result.forEach(function (val) {
-            const card = ` <div class="card">
+            const card = ` 
+            <div class="card-container">
+            <div class="card">
   <h1 class="name">RIO</h1>
   <p class="description">
     ${val.discription}.
@@ -145,7 +151,8 @@ const displayCards = function () {
 
 
 
-
+</div>
+<a class="btn btn-download">Download</a>
 </div>
 `;
 
@@ -158,11 +165,16 @@ const displayCards = function () {
 const main = document.querySelector(".main");
 const sectionGallery = document.querySelector('.gallery');
 
-btnGallery.addEventListener("click", function (e) {
-    e.preventDefault();
-    sectionGallery.scrollIntoView({behavior: 'smooth'});
-    setTimeout(() => main.remove(), 700);
-    
 
-    console.log("pressed");
-});
+
+
+//Dowbload button
+const btnDownload = document.querySelector(".btn-download");
+
+const card = document.querySelector(".card");
+
+html2canvas(card).then(canvas => {
+  const imgURL = canvas.toDataURL();
+  btnDownload.href = imgURL;
+  btnDownload.download = "card.png";
+})
